@@ -130,6 +130,13 @@ Verify access:
 kubectl get nodes
 ```
 
+Update cluster with Gateway API:
+
+```
+gcloud container clusters update CLUSTER_NAME \
+    --location=CLUSTER_LOCATION\
+    --gateway-api=standard
+```
 ---
 
 ## Step 2: Install KEDA using Helm
