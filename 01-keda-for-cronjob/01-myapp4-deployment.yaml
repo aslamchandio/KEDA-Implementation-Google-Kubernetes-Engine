@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  #Dictionary
+  name: myapp4-deployment
+spec:
+  # Dictionary
+  replicas: 0
+  selector:
+    matchLabels:
+      app: myapp4
+  template:
+    metadata:
+      # Dictionary
+      name: myapp4-pod
+      labels:
+        # Dictionary
+        app: myapp4 # Key value pairs
+    spec:
+      containers:
+      # List
+      - name: myapp4-container
+        image: aslam24/nginx-web-makaan:v1
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "20Mi" #"256Mi" # 128 MebiByte is equal to 135 Megabyte (MB)
+            cpu: "20m" #"250m" # `m` means milliCPU
+          limits:
+            memory: "30Mi" #"512Mi"
+            cpu: "30m" #"400m" # 1000m is equal to 1 VCPU core 

@@ -1,0 +1,15 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: keda-pubsub
+  namespace: keda-pubsub
+spec:
+  maxReplicaCount: 5
+  scaleTargetRef:
+    name: keda-pubsub
+  triggers:
+  - type: gcp-pubsub
+    authenticationRef:
+      name: keda-auth
+    metadata:
+      subscriptionName: "projects/${PROJECT_ID}/subscriptions/keda-echo-read"
